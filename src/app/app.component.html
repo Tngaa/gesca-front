@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <!-- <p-fieldset *ngFor="let user of users" legend="{{user.firstName}} {{user.lastName}}">
+    {{user.annualSales[0].year}}
+  </p-fieldset> -->
+
+  <p-table [value]="users">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Year</th>
+        <th>Month</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{user.annualSales[0].year}}</td>
+        <td>{{user.annualSale[0].monthlySale}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- <router-outlet></router-outlet> -->
+
+  <!-- user.annualSales -> boucles -->
+  <app-annual-sale *ngFor="let annualSale of user.annualSales" [annualSale]="annualSale"></app-annual-sale>
+</div>

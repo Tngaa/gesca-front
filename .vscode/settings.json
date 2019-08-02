@@ -1,0 +1,7 @@
+{
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "html.format.wrapLineLength": 0,
+    "editor.formatOnSave": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+}
