@@ -1,32 +1,43 @@
-<p>annual-sale works!</p>
 <p-table [value]="[annualSale]">
   <ng-template pTemplate="header">
     <tr>
       <th>YEAR</th>
-      <th *ngFor="let month of months">{{month}}</th>
+      <th *ngFor="let month of months">{{month | slice:0:3}}</th>
       <th>CA TOTAL</th>
       <th>CS TOTAL</th>
-      <th>FT TOTAL</th>
-      <th>GAIN TOTAL</th>
+      <th>FP TOTAL</th>
+      <th>BENEFIT</th>
+      <th>Action</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-annualSale>
     <tr>
       <td>{{annualSale.year}}</td>
 
-      <td *ngFor="let month of months">{{getMonthlySale(month)?.sales}}</td>
+      <td *ngFor="let month of months" (click)="showMonthlySaleDialog(month)" class="cell">
+        <!-- {{getMonthlySale(month)?.sales}} -->
+        <app-monthly-sale [monthlySale]="getMonthlySale(month)"></app-monthly-sale>
+      </td>
       <!-- <td>hqfkjfh</td> -->
-      <td>1341</td>
-      <td>23424</td>
-      <td>2342</td>
-      <td>34242</td>
+
+      <!-- CA -->
+      <td>{{annualSale.sales}}</td>
+
+      <!-- CS -->
+      <td>{{annualSale.socialCharges}}</td>
+
+      <!-- FT -->
+      <td>{{annualSale.professionalFees}}</td>
+
+      <!-- benefit -->
+      <td>{{getBenefit()}}</td>
+
+      <!-- button delete -->
+      <td>
+        <button type="text" (click)="confirmDelete()" pButton icon="pi pi-trash" class="ui-button-danger"></button>
+      </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="footer">
-    <tr>
-      <td colspan="3">Totals</td>
-      <td>$506,202</td>
-      <td>$531,020</td>
-    </tr>
   </ng-template>
 </p-table>

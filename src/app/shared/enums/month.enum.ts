@@ -1,5 +1,5 @@
 export enum MonthEnum {
-  'January' = 0,
+  'January' = 0, // MonthEnum[0] => January ou MonthEnum['January'] => 0
   'February' = 1,
   'March' = 2,
   'Avril' = 3,

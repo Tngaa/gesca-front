@@ -1,6 +1,7 @@
 {
-  "/gesca": {
-    "target": "http://localhost:8080",
+  "/": {
+    "target": "http://localhost:8080/gesca",
+    "changeOrigin": true,
     "secure": false
   }
 }

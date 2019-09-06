@@ -1,27 +1,45 @@
+<!-- Menu principal -->
+<p-menubar [model]="menuItems">
+  <button pButton label="Logout" icon="fa fa-sign-out"></button>
+</p-menubar>
+
+
+<p-toast></p-toast>
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div>
 
   <!-- <p-fieldset *ngFor="let user of users" legend="{{user.firstName}} {{user.lastName}}">
     {{user.annualSales[0].year}}
   </p-fieldset> -->
 
-  <p-table [value]="users">
+  <button type="button" class="create-year" (click)="showDialog()" pButton icon="pi pi-plus" label="Create year"></button>
+
+  <!-- <p-table [value]="users">
     <ng-template pTemplate="header">
-      <tr>
-        <th>Year</th>
-        <th>Month</th>
-      </tr>
+
     </ng-template>
+
     <ng-template pTemplate="body" let-user>
       <tr>
         <td>{{user.annualSales[0].year}}</td>
         <td>{{user.annualSale[0].monthlySale}}</td>
       </tr>
     </ng-template>
-  </p-table>
+  </p-table> -->
 
   <!-- <router-outlet></router-outlet> -->
 
   <!-- user.annualSales -> boucles -->
-  <app-annual-sale *ngFor="let annualSale of user.annualSales" [annualSale]="annualSale"></app-annual-sale>
+  <ng-container *ngIf="user && user.annualSales">
+    <app-annual-sale *ngFor="let annualSale of user.annualSales" [annualSale]="annualSale" [user]="user" (deleteEvent)="confirmDelete($event)"></app-annual-sale>
+  </ng-container>
 </div>
+
+<p-confirmDialog #cd icon="pi pi-exclamation-triangle">
+  <p-footer>
+    <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+  </p-footer>
+</p-confirmDialog>
+
+<!-- <app-annual-sale-dialog [isDisplay]="isDisplay" [title]="'Create annual sales'" [user]="user"></app-annual-sale-dialog> -->

@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.input {
+  margin: 2em 0;
+}
+
+.ui-table .ui-table-tbody>tr>td {
+  padding: 0 !important;
+}

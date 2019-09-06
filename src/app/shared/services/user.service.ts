@@ -8,10 +8,10 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   public getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>('/gesca/users/');
+    return this.httpClient.get<User[]>('/users/');
   }
 
   public getUser(id: number): Observable<User> {
-    return this.httpClient.get<User>('/gesca/users/' + id);
+    return this.httpClient.get<User>('/users/' + id);
   }
 }

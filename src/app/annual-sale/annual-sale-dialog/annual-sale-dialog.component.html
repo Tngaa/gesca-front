@@ -1,0 +1,10 @@
+{{user?.firstName}}
+<!-- <p-inputMask [(ngModel)]="year" (ngModelChange)="onChangeYear()" mask="9999"></p-inputMask> -->
+<span class="ui-float-label input">
+  <input id="float-input" type="number" size="30" pInputText [(ngModel)]="year">
+  <label for="float-input">Year</label>
+</span>
+<div>
+  <button pButton type="button" class="ui-button-primary" icon="pi pi-check" iconPos="left" label="Confirm" (click)="confirm()" [disabled]="shouldDisable()"></button>
+  <button pButton type="button" class="ui-button-secondary" icon="pi pi-times" iconPos="left" label="Cancel" (click)="cancel()"></button>
+</div>

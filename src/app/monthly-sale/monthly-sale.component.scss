@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+%row {
+  flex-grow: 1;
+  height: 16px;
+}
+
+.ca {
+  @extend %row;
+  background-color: rgb(10, 207, 63);
+}
+
+.cs {
+  @extend %row;
+  background-color: rgb(242, 178, 82);
+}
+
+.fp {
+  @extend %row;
+  background-color: rgb(240, 245, 110);
+}

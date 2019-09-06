@@ -1,0 +1,20 @@
+<span class="ui-float-label input">
+  <input id="float-input" type="number" size="30" pInputText [(ngModel)]="monthlySale.sales">
+  <label for="float-input">Sales</label>
+</span>
+<span class="ui-float-label input">
+  <input id="float-input" type="number" size="30" pInputText [(ngModel)]="monthlySale.socialCharges">
+  <label for="float-input">Sociales Charges</label>
+</span>
+<span class="ui-float-label input">
+  <input id="float-input" type="number" size="30" pInputText [(ngModel)]="monthlySale.professionalFees">
+  <label for="float-input">Professional Fees</label>
+</span>
+<!-- <input type="text" pInputText[(ngModel)]="sales" />
+<p-inputMask [(ngModel)]="socialCharges" mask="9999"></p-inputMask>
+<p-inputMask [(ngModel)]="professionalFees" mask="9999"></p-inputMask> -->
+<div>
+  <button pButton type="button" class="ui-button-primary" icon="pi pi-check" iconPos="left" label="Confirm" (click)="confirm()" [disabled]="shouldDisable()"></button>
+  <button pButton type="button" class="ui-button-secondary" icon="pi pi-times" iconPos="left" label="Cancel" (click)="cancel()"></button>
+  <button *ngIf="monthlySale.id" pButton type="button" class="ui-button-danger" icon="pi pi-trash" iconPos="left" label="Delete" (click)="delete()"></button>
+</div>

@@ -1,5 +1,7 @@
 export class MonthlySale {
+  public id: number;
   public month: number;
   public sales: number;
-  // public monthlySales: MonthySale[];
+  public socialCharges: number;
+  public professionalFees: number;
 }
