@@ -1,13 +1,22 @@
 .cell:hover {
   cursor: pointer;
+  background-color: #C0C0C0;
   opacity: 0.3;
+  color: black !important;
 }
+
 
 p-table {
   margin-top: 3em;
+
+
 }
 
 th,
 tr {
   text-align: center;
+}
+
+.benefit {
+  font-weight: bolder;
 }

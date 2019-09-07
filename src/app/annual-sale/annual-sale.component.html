@@ -2,17 +2,26 @@
   <ng-template pTemplate="header">
     <tr>
       <th>YEAR</th>
+      <th>LABEL</th>
       <th *ngFor="let month of months">{{month | slice:0:3}}</th>
-      <th>CA TOTAL</th>
-      <th>CS TOTAL</th>
-      <th>FP TOTAL</th>
+      <th>TOTALS</th>
       <th>BENEFIT</th>
       <th>Action</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-annualSale>
     <tr>
+
+
       <td>{{annualSale.year}}</td>
+
+      <td>
+        <div class="container">
+          <span class="ca">Sales</span>
+          <span class="cs">Social</span>
+          <span class="pf">Pro-fees</span>
+        </div>
+      </td>
 
       <td *ngFor="let month of months" (click)="showMonthlySaleDialog(month)" class="cell">
         <!-- {{getMonthlySale(month)?.sales}} -->
@@ -20,17 +29,18 @@
       </td>
       <!-- <td>hqfkjfh</td> -->
 
-      <!-- CA -->
-      <td>{{annualSale.sales}}</td>
+      <!--Total of CA CS PF -->
+      <td>
+        <div class="container">
+          <span class="ca">{{annualSale.sales}}</span>
+          <span class="cs">{{annualSale.socialCharges}}</span>
+          <span class="pf">{{annualSale.professionalFees}}</span>
+        </div>
 
-      <!-- CS -->
-      <td>{{annualSale.socialCharges}}</td>
-
-      <!-- FT -->
-      <td>{{annualSale.professionalFees}}</td>
+      </td>
 
       <!-- benefit -->
-      <td>{{getBenefit()}}</td>
+      <td class="benefit">{{getBenefit()}}</td>
 
       <!-- button delete -->
       <td>
